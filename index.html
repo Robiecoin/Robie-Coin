@@ -66,9 +66,7 @@
       white-space:nowrap;
     }
 
-    .hero{
-      padding:26px 0 6px;
-    }
+    .hero{padding:26px 0 6px;}
     .hero-card{
       border:1px solid var(--border);
       background: linear-gradient(180deg, var(--panel), var(--panel2));
@@ -87,6 +85,7 @@
     }
     .hero-inner{position:relative; display:grid; grid-template-columns: 1.25fr .75fr; gap:18px; align-items:center;}
     @media(max-width:900px){ .hero-inner{grid-template-columns:1fr;} }
+
     h1{
       margin:0 0 10px;
       font-size: clamp(34px, 4.2vw, 54px);
@@ -142,12 +141,10 @@
       gap:14px;
       margin-top:14px;
     }
-    .span4{grid-column: span 4;}
     .span6{grid-column: span 6;}
-    .span8{grid-column: span 8;}
     .span12{grid-column: span 12;}
     @media(max-width:900px){
-      .span4,.span6,.span8{grid-column: span 12;}
+      .span6{grid-column: span 12;}
     }
 
     h2{margin:0 0 10px; font-size:20px}
@@ -209,7 +206,6 @@
         <a href="#buy">How to Buy</a>
         <a href="#tokenomics">Tokenomics</a>
         <a href="whitepaper.html">Whitepaper</a>
-        <!-- IMPORTANT: if your file is named Roadmap.html (capital R), change this link to Roadmap.html -->
         <a href="roadmap.html">Roadmap</a>
         <a href="#community">Community</a>
         <a href="https://www.prevailshop.com/collections/robie-the-robot-merchandise" target="_blank" rel="noopener">Merch ↗</a>
@@ -294,9 +290,7 @@
           <!-- ETH -->
           <div class="card span6" style="box-shadow:none;">
             <div class="kicker">Ethereum Meme Coin</div>
-            <p class="muted">
-              Use the ETH contract and the ETH chart link.
-            </p>
+            <p class="muted">Use the ETH contract and the ETH chart link.</p>
 
             <div class="codebox" id="ethCa2">0x2025BF4E0C1117685b1BF2ea2be56C7Deb11bc99</div>
 
@@ -306,9 +300,7 @@
               <button class="btn" onclick="copyText('ethCa2')">Copy Contract</button>
             </div>
 
-            <div class="mini">
-              Tip: if someone sends you a different contract, it’s not Robie.
-            </div>
+            <div class="mini">Tip: if someone sends you a different contract, it’s not Robie.</div>
           </div>
 
           <!-- BASE -->
@@ -326,40 +318,72 @@
               <button class="btn" onclick="copyText('baseCa2')">Copy Contract</button>
             </div>
 
-            <div class="mini">
-              If you’re unsure which is which: ETH = meme coin, Base = agent.
-            </div>
+            <div class="mini">If you’re unsure which is which: ETH = meme coin, Base = agent.</div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- TOKENOMICS -->
+    <!-- TOKENOMICS (UPDATED: pulls live ETH stats from Dexscreener API) -->
     <div class="section" id="tokenomics">
       <div class="card">
         <h2>Tokenomics</h2>
         <p class="muted">
           Tokenomics are tracked separately for each chain. Always verify you’re looking at the correct token:
-          <b>Robie (ETH meme coin)</b> vs <b>Robie (Base / Virtuals agent)</b>. Official supply/tax/liquidity details can be published here as needed.
+          <b>Robie (ETH meme coin)</b> vs <b>Robie (Base / Virtuals agent)</b>.
+          ETH stats below update automatically from Dexscreener.
         </p>
 
         <div class="grid">
+          <!-- ETH LIVE -->
           <div class="card span6" style="box-shadow:none;">
-            <div class="kicker">Ethereum Token</div>
-            <p class="muted">Supply: TBD</p>
-            <p class="muted">Tax: TBD</p>
-            <p class="muted">Liquidity: TBD</p>
-            <p class="muted">Ownership / locked / renounced: TBD</p>
+            <div class="kicker">Ethereum Token (Live)</div>
+            <p class="muted" id="ethStatus">Loading ETH stats…</p>
+
+            <div class="codebox" id="ethTokenomicsBox" style="margin-top:12px;">
+Price (USD): —<br/>
+24h Volume: —<br/>
+Liquidity (USD): —<br/>
+FDV: —<br/>
+Market Cap: —<br/>
+24h Change: —
+            </div>
+
+            <div class="links" style="margin-top:10px;">
+              <a class="linkitem" href="https://dexscreener.com/ethereum/0xBF36AbDf1ac7536adC354FB5A0DeDb4C155520d3" target="_blank" rel="noopener">
+                <span>Dexscreener Pair</span><span>↗</span>
+              </a>
+              <a class="linkitem" href="https://etherscan.io/token/0x2025BF4E0C1117685b1BF2ea2be56C7Deb11bc99" target="_blank" rel="noopener">
+                <span>Etherscan (Verify)</span><span>↗</span>
+              </a>
+            </div>
           </div>
 
+          <!-- BASE / VIRTUALS -->
           <div class="card span6" style="box-shadow:none;">
             <div class="kicker">Base / Agent Token</div>
-            <p class="muted">Supply: TBD</p>
-            <p class="muted">Utility / role: TBD</p>
-            <p class="muted">Distribution: TBD</p>
-            <p class="muted">Notes: TBD</p>
+            <p class="muted">
+              The Robie agent lives on Virtuals (Base). Use the Virtuals link + Base contract to verify.
+            </p>
+
+            <div class="codebox" style="margin-top:12px;">
+Contract: 0xffD2A088a629054BD3B876A7e25333B830ef0F5e<br/>
+Virtuals: https://app.virtuals.io/virtuals/16034<br/>
+Notes: Tokenomics differ from ETH version
+            </div>
+
+            <div class="links" style="margin-top:10px;">
+              <a class="linkitem" href="https://app.virtuals.io/virtuals/16034" target="_blank" rel="noopener">
+                <span>Virtuals App</span><span>↗</span>
+              </a>
+              <a class="linkitem" href="https://basescan.org/token/0xffD2A088a629054BD3B876A7e25333B830ef0F5e" target="_blank" rel="noopener">
+                <span>Basescan (Verify)</span><span>↗</span>
+              </a>
+            </div>
           </div>
         </div>
+
+        <div class="tag">ETH data source: Dexscreener API • Always verify contracts before buying.</div>
       </div>
     </div>
 
@@ -404,17 +428,57 @@
   </div>
 
   <script>
+    // Copy-to-clipboard helper
     function copyText(elId){
       const el = document.getElementById(elId);
       if(!el) return;
       const text = el.innerText.trim();
       navigator.clipboard.writeText(text).then(() => {
-        // tiny, non-intrusive feedback
         const old = el.style.outline;
         el.style.outline = "2px solid rgba(22,214,200,.6)";
         setTimeout(()=>{ el.style.outline = old; }, 650);
       }).catch(()=>{});
     }
+
+    // Dexscreener live fetch (ETH pair)
+    // Uses public endpoint: https://api.dexscreener.com/latest/dex/pairs/{chainId}/{pairId}
+    (async function loadEthTokenomics(){
+      const statusEl = document.getElementById("ethStatus");
+      const boxEl = document.getElementById("ethTokenomicsBox");
+
+      const chainId = "ethereum";
+      const pairId  = "0xBF36AbDf1ac7536adC354FB5A0DeDb4C155520d3";
+
+      try {
+        const url = `https://api.dexscreener.com/latest/dex/pairs/${chainId}/${pairId}`;
+        const res = await fetch(url, { cache: "no-store" });
+        if(!res.ok) throw new Error(`HTTP ${res.status}`);
+        const data = await res.json();
+
+        const pair = data?.pairs?.[0];
+        if(!pair) throw new Error("No pair data returned.");
+
+        const priceUsd = pair.priceUsd ? `$${Number(pair.priceUsd).toLocaleString()}` : "—";
+        const vol24h   = pair.volume?.h24 != null ? `$${Number(pair.volume.h24).toLocaleString()}` : "—";
+        const liqUsd   = pair.liquidity?.usd != null ? `$${Number(pair.liquidity.usd).toLocaleString()}` : "—";
+        const fdv      = pair.fdv != null ? `$${Number(pair.fdv).toLocaleString()}` : "—";
+        const mcap     = pair.marketCap != null ? `$${Number(pair.marketCap).toLocaleString()}` : "—";
+        const chg24h   = pair.priceChange?.h24 != null ? `${Number(pair.priceChange.h24).toFixed(2)}%` : "—";
+
+        statusEl.textContent = "Live from Dexscreener.";
+        boxEl.innerHTML =
+          `Price (USD): ${priceUsd}<br/>` +
+          `24h Volume: ${vol24h}<br/>` +
+          `Liquidity (USD): ${liqUsd}<br/>` +
+          `FDV: ${fdv}<br/>` +
+          `Market Cap: ${mcap}<br/>` +
+          `24h Change: ${chg24h}`;
+
+      } catch (err) {
+        if(statusEl) statusEl.textContent = "Couldn’t load live stats right now (Dexscreener API).";
+        console.warn(err);
+      }
+    })();
   </script>
 </body>
 </html>

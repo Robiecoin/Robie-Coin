@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Robie — Meme Coin (ETH) + AI Agent (Base)</title>
-  <meta name="description" content="Robie is both a meme coin on Ethereum and an AI agent on Base (Virtuals). Official links, contracts, how to buy, tokenomics, whitepaper, and roadmap." />
+  <title>Robie — Official Site</title>
+  <meta name="description" content="Robie official website — what it is, how to buy, tokenomics, roadmap, whitepaper, and verified links." />
 
   <style>
     :root{
@@ -65,53 +65,35 @@
       box-shadow: var(--shadow);
       white-space:nowrap;
     }
+
     .hero{
-      display:grid;
-      grid-template-columns: 1.25fr .75fr;
-      gap:16px;
-      padding:46px 0 10px;
-      align-items:stretch;
+      padding:26px 0 6px;
     }
-    @media (max-width: 900px){ .hero{grid-template-columns:1fr;} }
-    .card{
+    .hero-card{
       border:1px solid var(--border);
       background: linear-gradient(180deg, var(--panel), var(--panel2));
-      border-radius: var(--radius);
-      padding:22px;
+      border-radius: calc(var(--radius) + 8px);
+      padding:28px;
       box-shadow: var(--shadow);
+      position: relative;
+      overflow:hidden;
     }
+    .hero-card:before{
+      content:"";
+      position:absolute; inset:-2px;
+      background: radial-gradient(650px 220px at 40% 0%, rgba(124,92,255,.25), transparent 60%),
+                  radial-gradient(520px 220px at 85% 15%, rgba(22,214,200,.18), transparent 55%);
+      pointer-events:none;
+    }
+    .hero-inner{position:relative; display:grid; grid-template-columns: 1.25fr .75fr; gap:18px; align-items:center;}
+    @media(max-width:900px){ .hero-inner{grid-template-columns:1fr;} }
     h1{
       margin:0 0 10px;
-      font-size: clamp(34px, 4.2vw, 56px);
-      line-height: 1.03;
-      letter-spacing: -0.6px;
+      font-size: clamp(34px, 4.2vw, 54px);
+      line-height: 1.05;
+      letter-spacing:-0.6px;
     }
-    .sub{color:var(--muted); line-height:1.6; font-size:16px; margin:0}
-    .cta{display:flex; gap:12px; flex-wrap:wrap; margin-top:18px}
-    .btn{
-      display:inline-flex; align-items:center; justify-content:center;
-      padding:12px 14px; border-radius: 14px;
-      border:1px solid rgba(255,255,255,.15);
-      background: rgba(255,255,255,.06);
-      color:var(--text);
-      font-weight:700;
-      min-width: 160px;
-    }
-    .btn.primary{
-      background: linear-gradient(90deg, rgba(124,92,255,.95), rgba(22,214,200,.85));
-      color:#061019;
-      border-color: transparent;
-    }
-    .btn:hover{filter:brightness(1.05)}
-    .grid{
-      display:grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap:14px;
-      margin-top:14px;
-    }
-    .span6{grid-column: span 6;}
-    .span12{grid-column: span 12;}
-    @media(max-width:900px){ .span6{grid-column: span 12;} }
+    .lead{color:var(--muted); font-size:16px; line-height:1.7; margin:0 0 16px;}
     .kicker{
       display:inline-flex; gap:8px; align-items:center;
       padding:7px 10px; border-radius:999px;
@@ -121,28 +103,55 @@
       font-size: 13px;
       margin-bottom:10px;
     }
-    .title{margin:0 0 8px; font-size:18px}
-    .muted{color:var(--muted); line-height:1.65; margin:0}
-    .section{padding-top:44px; scroll-margin-top:88px;}
-    .twochain{
-      border:1px solid rgba(255,255,255,.14);
-      background: rgba(0,0,0,.18);
-      border-radius: 16px;
-      padding:14px;
+    .cta-row{display:flex; flex-wrap:wrap; gap:10px; align-items:center; margin-top:10px;}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:12px 14px;
+      border-radius: 14px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      color: var(--text);
+      font-weight:800;
+      font-size:14px;
+      box-shadow: 0 12px 30px rgba(0,0,0,.25);
+    }
+    .btn:hover{background: rgba(255,255,255,.06)}
+    .btn.primary{
+      border:0;
+      background: linear-gradient(90deg, rgba(124,92,255,.95), rgba(22,214,200,.85));
+      color:#061019;
+    }
+    .mini{
+      color: var(--muted);
+      font-size:13px;
+      line-height:1.5;
+      margin-top:10px;
+    }
+
+    .section{padding-top:18px; scroll-margin-top:88px;}
+    .card{
+      border:1px solid var(--border);
+      background: linear-gradient(180deg, var(--panel), var(--panel2));
+      border-radius: var(--radius);
+      padding:22px;
+      box-shadow: var(--shadow);
+    }
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap:14px;
       margin-top:14px;
     }
-    .twochain b{color:var(--text)}
-    .badge{
-      display:inline-block;
-      font-size:12px;
-      padding:6px 10px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.12);
-      color:var(--muted);
-      background: rgba(255,255,255,.04);
-      margin-right:8px;
-      margin-top:8px;
+    .span4{grid-column: span 4;}
+    .span6{grid-column: span 6;}
+    .span8{grid-column: span 8;}
+    .span12{grid-column: span 12;}
+    @media(max-width:900px){
+      .span4,.span6,.span8{grid-column: span 12;}
     }
+
+    h2{margin:0 0 10px; font-size:20px}
+    .muted{color:var(--muted); line-height:1.7; margin:0}
     .codebox{
       margin-top:12px;
       border:1px dashed rgba(255,255,255,.22);
@@ -154,8 +163,30 @@
       overflow:auto;
       word-break: break-all;
     }
-    .small{font-size:13px; color:var(--muted); line-height:1.55}
-    .links{display:grid; gap:10px;}
+    .copyrow{display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin-top:10px;}
+    .smallbtn{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:10px 12px;
+      border-radius: 12px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      color: var(--text);
+      font-weight:800;
+      font-size:13px;
+      cursor:pointer;
+    }
+    .smallbtn:hover{background: rgba(255,255,255,.06)}
+    .tag{
+      display:inline-block;
+      font-size:12px;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.12);
+      color:var(--muted);
+      background: rgba(255,255,255,.04);
+      margin-top:10px;
+    }
+    .links{display:grid; gap:10px; margin-top:10px;}
     .linkitem{
       display:flex; justify-content:space-between; align-items:center;
       padding:12px 14px;
@@ -164,7 +195,7 @@
       background: rgba(255,255,255,.04);
     }
     .linkitem:hover{background: rgba(255,255,255,.06)}
-    footer{margin-top:44px; color:var(--muted); font-size:13px; line-height:1.6}
+    footer{margin-top:34px; color:var(--muted); font-size:13px; line-height:1.6}
   </style>
 </head>
 
@@ -178,8 +209,10 @@
         <a href="#buy">How to Buy</a>
         <a href="#tokenomics">Tokenomics</a>
         <a href="whitepaper.html">Whitepaper</a>
+        <!-- IMPORTANT: if your file is named Roadmap.html (capital R), change this link to Roadmap.html -->
         <a href="roadmap.html">Roadmap</a>
         <a href="#community">Community</a>
+        <a href="https://www.prevailshop.com/collections/robie-the-robot-merchandise" target="_blank" rel="noopener">Merch ↗</a>
       </div>
 
       <a class="pillbtn" href="https://app.virtuals.io/virtuals/16034" target="_blank" rel="noopener">Launch App ↗</a>
@@ -187,102 +220,115 @@
   </div>
 
   <div class="wrap">
+
     <!-- HERO -->
     <div class="hero">
-      <div class="card">
-        <div class="kicker">Official site • links + contracts</div>
-        <h1>Robie: Meme Coin (ETH) + AI Agent (Base)</h1>
-        <p class="sub">
-          One brand. Two tokens. Two chains. This site is the source of truth for official contracts, how-to-buy, tokenomics, and links.
-        </p>
+      <div class="hero-card">
+        <div class="hero-inner">
+          <div>
+            <div class="kicker">Official Hub • Verified Links</div>
+            <h1>Welcome to Robie</h1>
+            <p class="lead">
+              Robie is a community-led crypto brand built in two forms: a meme coin on <b>Ethereum</b> and an AI agent on <b>Base</b> via Virtuals.
+              This site is the source of truth for official contracts, how to buy, and verified links.
+            </p>
 
-        <div class="cta">
-          <a class="btn primary" href="#buy">Buy Robie (Ethereum)</a>
-          <a class="btn" href="#buy">Use Robie Agent (Base)</a>
-        </div>
+            <div class="cta-row">
+              <a class="btn primary" href="https://dexscreener.com/ethereum/0xBF36AbDf1ac7536adC354FB5A0DeDb4C155520d3" target="_blank" rel="noopener">
+                Buy / Chart (ETH) ↗
+              </a>
+              <a class="btn" href="https://app.virtuals.io/virtuals/16034" target="_blank" rel="noopener">
+                Open Virtuals (Base) ↗
+              </a>
+              <a class="btn" href="whitepaper.html">Read Whitepaper</a>
+              <a class="btn" href="https://www.prevailshop.com/collections/robie-the-robot-merchandise" target="_blank" rel="noopener">Shop Merch ↗</a>
+            </div>
 
-        <div class="twochain">
-          <p class="muted">
-            <b>Important:</b> Robie exists in two forms:
-            <span class="badge">Robie Meme Coin — Ethereum</span>
-            <span class="badge">Robie AI Agent — Base (Virtuals)</span><br/>
-            They are <b>not the same token</b>. Always verify the chain + contract before buying.
-          </p>
-        </div>
-      </div>
+            <div class="mini">
+              <b>Important:</b> Robie exists on two chains. Always verify you’re using the correct contract for the token you want.
+            </div>
+          </div>
 
-      <div class="card">
-        <div class="kicker">Quick Links</div>
-        <div class="links">
-          <a class="linkitem" href="whitepaper.html"><span>Read Whitepaper</span><span>→</span></a>
-          <a class="linkitem" href="roadmap.html"><span>View Roadmap</span><span>→</span></a>
-          <a class="linkitem" href="#community"><span>Official Socials</span><span>→</span></a>
+          <div class="card" style="box-shadow:none;">
+            <div class="kicker">Quick Verify</div>
+
+            <div class="tag">ETH Contract</div>
+            <div class="codebox" id="ethCa">0x2025BF4E0C1117685b1BF2ea2be56C7Deb11bc99</div>
+            <div class="copyrow">
+              <button class="smallbtn" onclick="copyText('ethCa')">Copy</button>
+              <a class="smallbtn" href="https://etherscan.io/token/0x2025BF4E0C1117685b1BF2ea2be56C7Deb11bc99" target="_blank" rel="noopener">Etherscan ↗</a>
+            </div>
+
+            <div class="tag">Base / Virtuals Contract</div>
+            <div class="codebox" id="baseCa">0xffD2A088a629054BD3B876A7e25333B830ef0F5e</div>
+            <div class="copyrow">
+              <button class="smallbtn" onclick="copyText('baseCa')">Copy</button>
+              <a class="smallbtn" href="https://basescan.org/token/0xffD2A088a629054BD3B876A7e25333B830ef0F5e" target="_blank" rel="noopener">Basescan ↗</a>
+            </div>
+          </div>
+
         </div>
-        <p class="small" style="margin-top:12px;">
-          Tip: if you only trust links from one place, trust this page.
-        </p>
       </div>
     </div>
 
     <!-- ABOUT -->
     <div class="section" id="about">
-      <div class="grid">
-        <div class="card span12">
-          <h2 class="title">About Robie</h2>
-          <p class="muted">
-            Robie is a community-led crypto brand built in two forms: a meme coin on <b>Ethereum</b> and an AI agent on <b>Base</b> via Virtuals.
-  This site is the official hub for contracts, how-to-buy, and verified links — so you always know you’re in the right place.
-          </p>
-        </div>
+      <div class="card">
+        <h2>About Robie</h2>
+        <p class="muted">
+          Robie is a community-led crypto brand built in two forms: a meme coin on <b>Ethereum</b> and an AI agent on <b>Base</b> via Virtuals.
+          This site is the official hub for contracts, how-to-buy, and verified links — so you always know you’re in the right place.
+        </p>
       </div>
     </div>
 
     <!-- HOW TO BUY -->
     <div class="section" id="buy">
-      <div class="grid">
-        <div class="card span6">
-          <div class="kicker">Robie Meme Coin</div>
-          <h2 class="title">Buy Robie (Ethereum)</h2>
-          <p class="muted">Chain: <b>Ethereum</b> • Token type: <b>Meme coin</b></p>
+      <div class="card">
+        <h2>How to Buy</h2>
+        <p class="muted">
+          Robie exists on two chains. Pick the version you want and follow the correct steps. Always verify the contract before you buy.
+        </p>
 
-          <div class="codebox">
-            ETH Contract: 0x2025BF4E0C1117685b1BF2ea2be56C7Deb11bc99
+        <div class="grid">
+          <!-- ETH -->
+          <div class="card span6" style="box-shadow:none;">
+            <div class="kicker">Ethereum Meme Coin</div>
+            <p class="muted">
+              Use the ETH contract and the ETH chart link.
+            </p>
+
+            <div class="codebox" id="ethCa2">0x2025BF4E0C1117685b1BF2ea2be56C7Deb11bc99</div>
+
+            <div class="cta-row" style="margin-top:12px;">
+              <a class="btn primary" href="https://dexscreener.com/ethereum/0xBF36AbDf1ac7536adC354FB5A0DeDb4C155520d3" target="_blank" rel="noopener">Buy / Chart ↗</a>
+              <a class="btn" href="https://etherscan.io/token/0x2025BF4E0C1117685b1BF2ea2be56C7Deb11bc99" target="_blank" rel="noopener">Verify ↗</a>
+              <button class="btn" onclick="copyText('ethCa2')">Copy Contract</button>
+            </div>
+
+            <div class="mini">
+              Tip: if someone sends you a different contract, it’s not Robie.
+            </div>
           </div>
 
-          <p class="small">
-            Steps (edit later):
-            <br/>1) Use a wallet (MetaMask).
-            <br/>2) Hold ETH for gas.
-            <br/>3) Swap on your preferred DEX.
-            <br/>4) Verify contract + chain before confirming.
-          </p>
+          <!-- BASE -->
+          <div class="card span6" style="box-shadow:none;">
+            <div class="kicker">Base / Virtuals Agent</div>
+            <p class="muted">
+              Robie’s agent lives on Virtuals (Base). Use the Base contract and Virtuals link.
+            </p>
 
-          <div class="cta" style="margin-top:14px;">
-            <a class="btn primary" href="#" target="_blank" rel="noopener">Buy / Chart ↗</a>
-            <a class="btn" href="#community">Official Links</a>
-          </div>
-        </div>
+            <div class="codebox" id="baseCa2">0xffD2A088a629054BD3B876A7e25333B830ef0F5e</div>
 
-        <div class="card span6">
-          <div class="kicker">Robie AI Agent</div>
-          <h2 class="title">Use Robie Agent (Base / Virtuals)</h2>
-          <p class="muted">Chain: <b>Base</b> • Product: <b>AI Agent on Virtuals</b></p>
+            <div class="cta-row" style="margin-top:12px;">
+              <a class="btn primary" href="https://app.virtuals.io/virtuals/16034" target="_blank" rel="noopener">Launch on Virtuals ↗</a>
+              <a class="btn" href="https://basescan.org/token/0xffD2A088a629054BD3B876A7e25333B830ef0F5e" target="_blank" rel="noopener">Verify ↗</a>
+              <button class="btn" onclick="copyText('baseCa2')">Copy Contract</button>
+            </div>
 
-          <div class="codebox">
-            BASE Contract: 0xffD2A088a629054BD3B876A7e25333B830ef0F5e
-          </div>
-
-          <p class="small">
-            Steps (edit later):
-            <br/>1) Use a wallet that supports Base.
-            <br/>2) Bridge ETH → Base if needed.
-            <br/>3) Open the Virtuals app page.
-            <br/>4) Verify contract + chain before interacting.
-          </p>
-
-          <div class="cta" style="margin-top:14px;">
-            <a class="btn primary" href="https://app.virtuals.io/virtuals/16034" target="_blank" rel="noopener">Launch Robie on Virtuals ↗</a>
-            <a class="btn" href="#community">Official Links</a>
+            <div class="mini">
+              If you’re unsure which is which: ETH = meme coin, Base = agent.
+            </div>
           </div>
         </div>
       </div>
@@ -290,34 +336,28 @@
 
     <!-- TOKENOMICS -->
     <div class="section" id="tokenomics">
-      <div class="grid">
-        <div class="card span12">
-          <h2 class="title">Tokenomics</h2>
-          <p class="muted">
-            We can list tokenomics for each chain separately (recommended), or only for the ETH meme coin if that’s the primary token.
-            You’ll fill in the actual numbers later.
-          </p>
+      <div class="card">
+        <h2>Tokenomics</h2>
+        <p class="muted">
+          Tokenomics are tracked separately for each chain. Always verify you’re looking at the correct token:
+          <b>Robie (ETH meme coin)</b> vs <b>Robie (Base / Virtuals agent)</b>. Official supply/tax/liquidity details can be published here as needed.
+        </p>
 
-          <div class="grid" style="margin-top:12px;">
-            <div class="card span6" style="box-shadow:none;">
-              <div class="kicker">Ethereum Token</div>
-              <p class="muted">
-                Supply: TBD<br/>
-                Tax: TBD<br/>
-                Liquidity: TBD<br/>
-                Contract renounced/locked: TBD
-              </p>
-            </div>
+        <div class="grid">
+          <div class="card span6" style="box-shadow:none;">
+            <div class="kicker">Ethereum Token</div>
+            <p class="muted">Supply: TBD</p>
+            <p class="muted">Tax: TBD</p>
+            <p class="muted">Liquidity: TBD</p>
+            <p class="muted">Ownership / locked / renounced: TBD</p>
+          </div>
 
-            <div class="card span6" style="box-shadow:none;">
-              <div class="kicker">Base / Agent Token</div>
-              <p class="muted">
-                Supply: TBD<br/>
-                Utility: TBD<br/>
-                Distribution: TBD<br/>
-                Notes: TBD
-              </p>
-            </div>
+          <div class="card span6" style="box-shadow:none;">
+            <div class="kicker">Base / Agent Token</div>
+            <p class="muted">Supply: TBD</p>
+            <p class="muted">Utility / role: TBD</p>
+            <p class="muted">Distribution: TBD</p>
+            <p class="muted">Notes: TBD</p>
           </div>
         </div>
       </div>
@@ -325,46 +365,56 @@
 
     <!-- COMMUNITY -->
     <div class="section" id="community">
-      <div class="grid">
-        <div class="card span12">
-          <h2 class="title">Community & Official Links</h2>
-          <p class="muted">Only trust links from this section.</p>
+      <div class="card">
+        <h2>Community</h2>
+        <p class="muted">
+          Only trust links from this page. Beware of impersonators, fake contracts, and copycat accounts.
+        </p>
 
-          <div class="grid" style="margin-top:12px;">
-            <div class="card span6" style="box-shadow:none;">
-              <div class="kicker">Socials</div>
-
-              <div class="links" style="margin-top:10px;">
-                <a class="linkitem" href="https://t.me/robiecoin" target="_blank" rel="noopener"><span>Telegram</span><span>↗</span></a>
-                <a class="linkitem" href="https://x.com/RobieCoin" target="_blank" rel="noopener"><span>X</span><span>↗</span></a>
-                <a class="linkitem" href="https://www.tiktok.com/@robiecoin" target="_blank" rel="noopener"><span>TikTok</span><span>↗</span></a>
-                <a class="linkitem" href="https://www.instagram.com/robiecoin/" target="_blank" rel="noopener"><span>Instagram</span><span>↗</span></a>
-                <a class="linkitem" href="https://www.facebook.com/profile.php?id=61570617760226" target="_blank" rel="noopener"><span>Facebook</span><span>↗</span></a>
-                <a class="linkitem" href="https://www.youtube.com/@robiecoin" target="_blank" rel="noopener"><span>YouTube</span><span>↗</span></a>
-                <a class="linkitem" href="https://medium.com/@robiecoin" target="_blank" rel="noopener"><span>Medium</span><span>↗</span></a>
-              </div>
+        <div class="grid">
+          <div class="card span6" style="box-shadow:none;">
+            <div class="kicker">Official Socials</div>
+            <div class="links">
+              <a class="linkitem" href="https://t.me/robiecoin" target="_blank" rel="noopener"><span>Telegram</span><span>↗</span></a>
+              <a class="linkitem" href="https://x.com/RobieCoin" target="_blank" rel="noopener"><span>X</span><span>↗</span></a>
+              <a class="linkitem" href="https://medium.com/@robiecoin" target="_blank" rel="noopener"><span>Medium</span><span>↗</span></a>
             </div>
+          </div>
 
-            <div class="card span6" style="box-shadow:none;">
-              <div class="kicker">Contracts & Safety</div>
-              <p class="small">
-                Always confirm:
-                <br/>• Chain (Ethereum vs Base)
-                <br/>• Exact contract address
-                <br/>• Official links only
-              </p>
-              <div class="codebox">ETH Contract: 0x2025BF4E0C1117685b1BF2ea2be56C7Deb11bc99</div>
-              <div class="codebox" style="margin-top:10px;">BASE Contract: 0xffD2A088a629054BD3B876A7e25333B830ef0F5e</div>
+          <div class="card span6" style="box-shadow:none;">
+            <div class="kicker">More</div>
+            <div class="links">
+              <a class="linkitem" href="https://www.tiktok.com/@robiecoin?_r=1&_t=ZT-93l7rDobHRd" target="_blank" rel="noopener"><span>TikTok</span><span>↗</span></a>
+              <a class="linkitem" href="https://www.instagram.com/robiecoin?igsh=NTc4MTIwNjQ2YQ%3D%3D&utm_source=qr" target="_blank" rel="noopener"><span>Instagram</span><span>↗</span></a>
+              <a class="linkitem" href="https://www.facebook.com/profile.php?id=61570617760226&mibextid=wwXIfr&mibextid=wwXIfr" target="_blank" rel="noopener"><span>Facebook</span><span>↗</span></a>
+              <a class="linkitem" href="https://youtube.com/@robiecoin?si=HyB6twndCBLnfHZJ" target="_blank" rel="noopener"><span>YouTube</span><span>↗</span></a>
+              <a class="linkitem" href="https://www.prevailshop.com/collections/robie-the-robot-merchandise" target="_blank" rel="noopener"><span>Merch Store</span><span>↗</span></a>
             </div>
           </div>
         </div>
+
+        <div class="tag">Virtuals: https://app.virtuals.io/virtuals/16034</div>
       </div>
     </div>
 
     <footer>
       Disclaimer: This website is for informational purposes only and does not constitute financial advice.
-      Crypto assets are volatile. Always verify contracts and beware of impersonators.
+      Always verify contracts and beware of impersonators.
     </footer>
   </div>
+
+  <script>
+    function copyText(elId){
+      const el = document.getElementById(elId);
+      if(!el) return;
+      const text = el.innerText.trim();
+      navigator.clipboard.writeText(text).then(() => {
+        // tiny, non-intrusive feedback
+        const old = el.style.outline;
+        el.style.outline = "2px solid rgba(22,214,200,.6)";
+        setTimeout(()=>{ el.style.outline = old; }, 650);
+      }).catch(()=>{});
+    }
+  </script>
 </body>
 </html>

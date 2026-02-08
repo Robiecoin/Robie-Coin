@@ -3,70 +3,95 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Robie Coin — Whitepaper</title>
+  <title>Robie — Whitepaper</title>
+  <meta name="description" content="Robie Whitepaper (PDF) — official document." />
   <style>
-    :root { --bg:#0b0f1a; --card:#11182a; --text:#e9eefc; --muted:#a7b2d6; --accent:#7c5cff; }
-    *{box-sizing:border-box;}
-    body{margin:0;font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--text);}
-    a{color:inherit;text-decoration:none;}
-    .wrap{max-width:900px;margin:0 auto;padding:40px 20px;}
-    .top{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:20px;}
-    .nav a{color:var(--muted);margin-left:12px;font-size:14px;}
-    .nav a:hover{color:var(--text);}
-    .card{background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));border:1px solid rgba(255,255,255,.10);border-radius:18px;padding:22px;}
-    h1{margin:0 0 8px;font-size:30px;}
-    h2{margin:22px 0 10px;font-size:18px;}
-    p,li{color:var(--muted);line-height:1.7;}
-    .toc{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px;}
-    .pill{font-size:13px;color:var(--muted);padding:8px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.04);}
-    .pill:hover{color:var(--text);border-color:rgba(255,255,255,.2);}
+    :root{
+      --bg:#070a12;
+      --muted:#aab6dd;
+      --text:#ecf2ff;
+      --border: rgba(255,255,255,.10);
+      --accent:#7c5cff;
+      --accent2:#16d6c8;
+      --shadow: 0 20px 60px rgba(0,0,0,.45);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(1000px 650px at 20% 10%, rgba(124,92,255,.28), transparent 60%),
+        radial-gradient(900px 600px at 85% 20%, rgba(22,214,200,.18), transparent 55%),
+        radial-gradient(900px 700px at 50% 100%, rgba(124,92,255,.12), transparent 60%),
+        var(--bg);
+      height: 100vh;
+      overflow:hidden;
+    }
+    a{color:inherit; text-decoration:none}
+    .nav{
+      position: sticky; top:0; z-index:50;
+      backdrop-filter: blur(10px);
+      background: rgba(7,10,18,.55);
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .nav-inner{
+      max-width:1100px; margin:0 auto;
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 18px; gap:14px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      font-weight:900; letter-spacing:.4px; text-transform: uppercase;
+    }
+    .dot{
+      width:10px; height:10px; border-radius:999px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      box-shadow: 0 0 28px rgba(124,92,255,.65);
+    }
+    .navlinks{display:flex; gap:16px; flex-wrap:wrap; align-items:center; color:var(--muted); font-size:14px}
+    .navlinks a:hover{color:var(--text)}
+    .pillbtn{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:10px 12px; border-radius:999px;
+      background: linear-gradient(90deg, rgba(124,92,255,.95), rgba(22,214,200,.85));
+      color:#061019; font-weight:800; border:0;
+      box-shadow: var(--shadow);
+      white-space:nowrap;
+    }
+    .frame{
+      height: calc(100vh - 58px);
+      width: 100%;
+    }
+    .fallback{
+      padding:18px;
+      color: var(--muted);
+      font-size:14px;
+    }
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <div class="top">
-      <div style="font-weight:700;">Robie Coin</div>
-      <div class="nav">
-        <a href="index.html">Home</a>
+  <div class="nav">
+    <div class="nav-inner">
+      <div class="brand"><span class="dot"></span> ROBIE</div>
+      <div class="navlinks">
+        <a href="index.html#about">About</a>
+        <a href="index.html#buy">How to Buy</a>
+        <a href="index.html#tokenomics">Tokenomics</a>
+        <a href="whitepaper.html">Whitepaper</a>
         <a href="roadmap.html">Roadmap</a>
+        <a href="index.html#community">Community</a>
       </div>
-    </div>
-
-    <div class="card">
-      <h1>Whitepaper</h1>
-      <p>Short, readable, and built for humans. Update these sections with your real details.</p>
-
-      <div class="toc">
-        <a class="pill" href="#what">What is Robie?</a>
-        <a class="pill" href="#why">Why it exists</a>
-        <a class="pill" href="#how">How it works</a>
-        <a class="pill" href="#token">Token utility</a>
-        <a class="pill" href="#risks">Risks & disclaimer</a>
-      </div>
-
-      <h2 id="what">1) What is Robie?</h2>
-      <p>Robie is a meme-forward AI agent project designed to ship real outputs while building a community-led brand.</p>
-
-      <h2 id="why">2) Why it exists</h2>
-      <ul>
-        <li>Make crypto fun again, but with execution.</li>
-        <li>Turn attention into momentum, momentum into product.</li>
-        <li>Keep the story simple and the links official.</li>
-      </ul>
-
-      <h2 id="how">3) How it works</h2>
-      <ul>
-        <li>Community growth + content engine</li>
-        <li>Transparent roadmap + frequent updates</li>
-        <li>Clear “official links” policy to reduce scams</li>
-      </ul>
-
-      <h2 id="token">4) Token utility</h2>
-      <p>Add your actual utility claims carefully. If you don’t have real utility yet, keep this section conservative and future-looking.</p>
-
-      <h2 id="risks">5) Risks & disclaimer</h2>
-      <p>Crypto is risky. This document is informational and not financial advice.</p>
+      <a class="pillbtn" href="https://app.virtuals.io/virtuals/16034" target="_blank" rel="noopener">Launch App ↗</a>
     </div>
   </div>
+
+  <!-- IMPORTANT: make sure the PDF filename matches exactly -->
+  <object class="frame" data="robie-whitepaper-v1.pdf" type="application/pdf">
+    <div class="fallback">
+      Your browser can’t display embedded PDFs.
+      <a href="robie-whitepaper-v1.pdf" target="_blank" rel="noopener" style="text-decoration:underline;">Click here to open the whitepaper.</a>
+    </div>
+  </object>
 </body>
 </html>

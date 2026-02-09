@@ -202,6 +202,7 @@
       <div class="brand"><span class="dot"></span> ROBIE</div>
 
       <div class="navlinks">
+        <a href="index.html">Home</a>
         <a href="#about">About</a>
         <a href="#buy">How to Buy</a>
         <a href="#tokenomics">Tokenomics</a>
@@ -218,7 +219,7 @@
   <div class="wrap">
 
     <!-- HERO -->
-    <div class="hero">
+    <div class="hero" id="top">
       <div class="hero-card">
         <div class="hero-inner">
           <div>
@@ -259,6 +260,8 @@
             <div class="codebox" id="baseCa">0xffD2A088a629054BD3B876A7e25333B830ef0F5e</div>
             <div class="copyrow">
               <button class="smallbtn" onclick="copyText('baseCa')">Copy</button>
+              <!-- Requested: remove Basescan from Tokenomics; keeping this verify link here is optional.
+                   If you also want it removed globally, delete the <a> below. -->
               <a class="smallbtn" href="https://basescan.org/token/0xffD2A088a629054BD3B876A7e25333B830ef0F5e" target="_blank" rel="noopener">Basescan ↗</a>
             </div>
           </div>
@@ -314,7 +317,6 @@
 
             <div class="cta-row" style="margin-top:12px;">
               <a class="btn primary" href="https://app.virtuals.io/virtuals/16034" target="_blank" rel="noopener">Launch on Virtuals ↗</a>
-              <a class="btn" href="https://basescan.org/token/0xffD2A088a629054BD3B876A7e25333B830ef0F5e" target="_blank" rel="noopener">Verify ↗</a>
               <button class="btn" onclick="copyText('baseCa2')">Copy Contract</button>
             </div>
 
@@ -324,66 +326,50 @@
       </div>
     </div>
 
-    <!-- TOKENOMICS (UPDATED: pulls live ETH stats from Dexscreener API) -->
+    <!-- TOKENOMICS (REVERTED VISUAL STYLE + COPY + LINKS, NO LIVE STATS, NO BASESCAN) -->
     <div class="section" id="tokenomics">
       <div class="card">
         <h2>Tokenomics</h2>
         <p class="muted">
           Tokenomics are tracked separately for each chain. Always verify you’re looking at the correct token:
           <b>Robie (ETH meme coin)</b> vs <b>Robie (Base / Virtuals agent)</b>.
-          ETH stats below update automatically from Dexscreener.
         </p>
 
         <div class="grid">
-          <!-- ETH LIVE -->
+          <!-- ETH -->
           <div class="card span6" style="box-shadow:none;">
-            <div class="kicker">Ethereum Token (Live)</div>
-            <p class="muted" id="ethStatus">Loading ETH stats…</p>
+            <div class="kicker">Ethereum Token</div>
 
-            <div class="codebox" id="ethTokenomicsBox" style="margin-top:12px;">
-Price (USD): —<br/>
-24h Volume: —<br/>
-Liquidity (USD): —<br/>
-FDV: —<br/>
-Market Cap: —<br/>
-24h Change: —
-            </div>
+            <p class="muted">Contract:</p>
+            <div class="codebox" id="ethCaTok">0x2025BF4E0C1117685b1BF2ea2be56C7Deb11bc99</div>
 
-            <div class="links" style="margin-top:10px;">
-              <a class="linkitem" href="https://dexscreener.com/ethereum/0xBF36AbDf1ac7536adC354FB5A0DeDb4C155520d3" target="_blank" rel="noopener">
-                <span>Dexscreener Pair</span><span>↗</span>
-              </a>
-              <a class="linkitem" href="https://etherscan.io/token/0x2025BF4E0C1117685b1BF2ea2be56C7Deb11bc99" target="_blank" rel="noopener">
-                <span>Etherscan (Verify)</span><span>↗</span>
+            <div class="copyrow">
+              <button class="smallbtn" onclick="copyText('ethCaTok')">Copy Contract</button>
+              <a class="smallbtn" href="https://dexscreener.com/ethereum/0xBF36AbDf1ac7536adC354FB5A0DeDb4C155520d3" target="_blank" rel="noopener">
+                View on Dexscreener ↗
               </a>
             </div>
+
+            <div class="tag">Meme coin on Ethereum</div>
           </div>
 
           <!-- BASE / VIRTUALS -->
           <div class="card span6" style="box-shadow:none;">
             <div class="kicker">Base / Agent Token</div>
-            <p class="muted">
-              The Robie agent lives on Virtuals (Base). Use the Virtuals link + Base contract to verify.
-            </p>
 
-            <div class="codebox" style="margin-top:12px;">
-Contract: 0xffD2A088a629054BD3B876A7e25333B830ef0F5e<br/>
-Virtuals: https://app.virtuals.io/virtuals/16034<br/>
-Notes: Tokenomics differ from ETH version
-            </div>
+            <p class="muted">Contract:</p>
+            <div class="codebox" id="baseCaTok">0xffD2A088a629054BD3B876A7e25333B830ef0F5e</div>
 
-            <div class="links" style="margin-top:10px;">
-              <a class="linkitem" href="https://app.virtuals.io/virtuals/16034" target="_blank" rel="noopener">
-                <span>Virtuals App</span><span>↗</span>
-              </a>
-              <a class="linkitem" href="https://basescan.org/token/0xffD2A088a629054BD3B876A7e25333B830ef0F5e" target="_blank" rel="noopener">
-                <span>Basescan (Verify)</span><span>↗</span>
+            <div class="copyrow">
+              <button class="smallbtn" onclick="copyText('baseCaTok')">Copy Contract</button>
+              <a class="smallbtn" href="https://app.virtuals.io/virtuals/16034" target="_blank" rel="noopener">
+                View on Virtuals ↗
               </a>
             </div>
+
+            <div class="tag">AI agent on Virtuals (Base)</div>
           </div>
         </div>
-
-        <div class="tag">ETH data source: Dexscreener API • Always verify contracts before buying.</div>
       </div>
     </div>
 
@@ -428,7 +414,6 @@ Notes: Tokenomics differ from ETH version
   </div>
 
   <script>
-    // Copy-to-clipboard helper
     function copyText(elId){
       const el = document.getElementById(elId);
       if(!el) return;
@@ -439,46 +424,6 @@ Notes: Tokenomics differ from ETH version
         setTimeout(()=>{ el.style.outline = old; }, 650);
       }).catch(()=>{});
     }
-
-    // Dexscreener live fetch (ETH pair)
-    // Uses public endpoint: https://api.dexscreener.com/latest/dex/pairs/{chainId}/{pairId}
-    (async function loadEthTokenomics(){
-      const statusEl = document.getElementById("ethStatus");
-      const boxEl = document.getElementById("ethTokenomicsBox");
-
-      const chainId = "ethereum";
-      const pairId  = "0xBF36AbDf1ac7536adC354FB5A0DeDb4C155520d3";
-
-      try {
-        const url = `https://api.dexscreener.com/latest/dex/pairs/${chainId}/${pairId}`;
-        const res = await fetch(url, { cache: "no-store" });
-        if(!res.ok) throw new Error(`HTTP ${res.status}`);
-        const data = await res.json();
-
-        const pair = data?.pairs?.[0];
-        if(!pair) throw new Error("No pair data returned.");
-
-        const priceUsd = pair.priceUsd ? `$${Number(pair.priceUsd).toLocaleString()}` : "—";
-        const vol24h   = pair.volume?.h24 != null ? `$${Number(pair.volume.h24).toLocaleString()}` : "—";
-        const liqUsd   = pair.liquidity?.usd != null ? `$${Number(pair.liquidity.usd).toLocaleString()}` : "—";
-        const fdv      = pair.fdv != null ? `$${Number(pair.fdv).toLocaleString()}` : "—";
-        const mcap     = pair.marketCap != null ? `$${Number(pair.marketCap).toLocaleString()}` : "—";
-        const chg24h   = pair.priceChange?.h24 != null ? `${Number(pair.priceChange.h24).toFixed(2)}%` : "—";
-
-        statusEl.textContent = "Live from Dexscreener.";
-        boxEl.innerHTML =
-          `Price (USD): ${priceUsd}<br/>` +
-          `24h Volume: ${vol24h}<br/>` +
-          `Liquidity (USD): ${liqUsd}<br/>` +
-          `FDV: ${fdv}<br/>` +
-          `Market Cap: ${mcap}<br/>` +
-          `24h Change: ${chg24h}`;
-
-      } catch (err) {
-        if(statusEl) statusEl.textContent = "Couldn’t load live stats right now (Dexscreener API).";
-        console.warn(err);
-      }
-    })();
   </script>
 </body>
 </html>
